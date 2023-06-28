@@ -33,3 +33,17 @@ body {
 .bg-theme {
     background-color: var(--primary-color);
 }
+
+input[type=text],
+input[type=email] {
+    height: 40px;
+    font-size: 13px;
+}
+
+.btn-theme {
+    height: 40px;
+    font-size: 13px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+}
