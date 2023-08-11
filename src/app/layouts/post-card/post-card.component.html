@@ -1,17 +1,13 @@
-<div class="card shadow-effect">
-    <img src="https://images.pexels.com/photos/1174932/pexels-photo-1174932.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="post-image" class="card-img-top">
+<div class="card shadow-effect" *ngIf="postData">
+    <img src="{{ postData.data.postImgPath }}" alt="post-image" class="card-img-top">
     <div class="card-body">
-        <small class="bg-light text-danger">Design</small>
+        <small class="bg-light text-danger">{{ postData.data.category.category }}</small>
         <small class="bg-light text-success ms-3">Featured</small>
-        <small class="bg-light text-info ms-3">Views - 100,256</small>
+        <small class="bg-light text-info ms-3">Views - {{ postData.data.views }}</small>
 
-        <h5 class="mt-1">HOW TO START A BLOG IN 2021 EDITED IN NEW CATEGORY</h5>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, nam eligendi, odio recusandae delectus, id
-            culpa quo excepturi perspiciatis inventore quis tenetur ullam alias dolor fugiat minima? Dolorum, itaque
-            nisi!
-        </p>
+        <h5 class="mt-1">{{ postData.data.title }}</h5>
+        <p>{{ postData.data.excerpt }}</p>
 
-        <small class="bg-light text-warning">LAST UPDATED - SEP 20, 2020</small>
+        <small class="bg-light text-warning">LAST UPDATED - {{ postData.data.createdAt.toMillis() | date}}</small>
     </div>
 </div>
