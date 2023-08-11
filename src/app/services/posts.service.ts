@@ -10,7 +10,7 @@ export class PostsService {
   constructor(private afs: AngularFirestore) { }
 
   loadFeatured() {
-    return this.afs.collection('posts', ref => ref.where('isFeatured', '==', true)).snapshotChanges().pipe(
+    return this.afs.collection('posts', ref => ref.where('isFeatured', '==', true).limit(4)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
