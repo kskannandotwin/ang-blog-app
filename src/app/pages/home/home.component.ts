@@ -7,9 +7,13 @@ import { PostsService } from 'src/app/services/posts.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  featuredPostsArray: Array<object> | any;
+
   constructor(private postService: PostsService) {
-    this.postService.loadData().subscribe(val => {
-      console.log(val);
+
+    this.postService.loadFeatured().subscribe(val => {
+      this.featuredPostsArray = val;
     });
   }
 }
