@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-single-category',
@@ -7,4 +9,19 @@ import { Component } from '@angular/core';
 })
 export class SingleCategoryComponent {
 
+  postsArray: Array<object> | any;
+  categoryObj: any;
+
+  constructor(private route: ActivatedRoute, private postService: PostsService) {}
+
+  ngOnInit() {
+    this.route.params.subscribe(val => {
+      console.log(val);
+      this.categoryObj = val;
+      
+      this.postService.loadCategoryPosts(val['id']).subscribe(post => {
+        this.postsArray = post;
+      });
+    });
+  }
 }
