@@ -7,12 +7,13 @@
                 blanditiis, voluptatibus voluptates quas natus odio delectus ab iste qui eaque et debitis odit,
                 accusantium laudantium.
             </P>
-            <form action="" class="row mb-5 mt-5">
+            <form class="row mb-5 mt-5" #subForm="ngForm">
                 <div class="form-group col-md-5">
-                    <input type="text" class="form-control shadow-effect" placeholder="Your name">
+                    <input type="text" class="form-control shadow-effect" placeholder="Your name" name="name" ngModel>
                 </div>
                 <div class="form-group col-md-5">
-                    <input type="email" class="form-control shadow-effect" placeholder="Email Address">
+                    <input type="email" class="form-control shadow-effect" placeholder="Email Address" name="email"
+                        ngModel>
                 </div>
                 <div class="col-md-2 d-grid">
                     <button class="btn btn-info btn-theme">SUBSCRIBE</button>
