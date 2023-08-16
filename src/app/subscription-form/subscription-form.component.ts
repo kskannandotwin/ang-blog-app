@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./subscription-form.component.css']
 })
 export class SubscriptionFormComponent {
-
+  onSubmit(formVal: any) {
+    console.log(formVal);
+  }
 }
