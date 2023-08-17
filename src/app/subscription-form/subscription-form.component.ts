@@ -9,6 +9,9 @@ import { SubscribersService } from '../services/subscribers.service';
 })
 export class SubscriptionFormComponent {
 
+  isEmailError: boolean = false;
+  isSubscribed: boolean = false;
+
   constructor(private subService: SubscribersService) { }
 
   onSubmit(formVal: any) {
@@ -21,8 +24,9 @@ export class SubscriptionFormComponent {
       console.log(val);
       if (val.empty) {
         this.subService.addSubs(subData);
+        this.isSubscribed = true;
       } else {
-        console.log('Email address is already in use');
+        this.isEmailError = true;
       }
     });
   }
