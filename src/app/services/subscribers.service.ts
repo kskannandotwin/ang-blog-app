@@ -13,4 +13,8 @@ export class SubscribersService {
       console.log('Subscriber saved successfully');
     });
   }
+
+  checkSubs(subEmail: any) {
+    return this.afs.collection('subscribers', ref => ref.where('email', '==', subEmail)).get();
+  }
 }

@@ -9,13 +9,21 @@ import { SubscribersService } from '../services/subscribers.service';
 })
 export class SubscriptionFormComponent {
 
-  constructor(private subService: SubscribersService) {}
+  constructor(private subService: SubscribersService) { }
 
   onSubmit(formVal: any) {
     const subData: Sub = {
       name: formVal.name,
       email: formVal.email
     }
-    this.subService.addSubs(subData);
+
+    this.subService.checkSubs(subData.email).subscribe(val => {
+      console.log(val);
+      if (val.empty) {
+        this.subService.addSubs(subData);
+      } else {
+        console.log('Email address is already in use');
+      }
+    });
   }
 }
